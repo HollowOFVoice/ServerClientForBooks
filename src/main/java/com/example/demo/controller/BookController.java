@@ -7,8 +7,6 @@ import com.example.demo.servise.BookService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Base64;
-
 
 @RestController
 @RequestMapping("api/v1/book")
@@ -20,7 +18,7 @@ private BookController(BookService service){this.service=service;}
 
  public ResponseEntity<BookListResponse> getAll(){
 
-  return service.getAll();}
+  return  ResponseEntity.ok(new BookListResponse(true,"Список книг",service.getAll()));}
  @PostMapping("/add") // Добавить книку в баззу
  public ResponseEntity<BaseResponse>registration(@RequestBody BookEntity data){
  try{

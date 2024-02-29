@@ -2,8 +2,6 @@ package com.example.demo.servise;
 
 import com.example.demo.entity.BookEntity;
 import com.example.demo.repo.BookRepo;
-import com.example.demo.responce.BookListResponse;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -15,5 +13,5 @@ public class BookService {
     }
     public void save(BookEntity book){repo.save(book);}
     public void delete(Long id){repo.deleteById(id);}
-    public ResponseEntity<BookListResponse> getAll(){return repo.findAll();}
+    public Iterable<BookEntity> getAll(){return repo.findAll();}
 }
